@@ -14,7 +14,8 @@ import { VendasListagemComponent } from './vendas-listagem/vendas-listagem.compo
     VendasListagemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
