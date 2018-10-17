@@ -1,4 +1,4 @@
-# SpringAngularWorkshop
+# spring-angular-ws-ui
 
 API for this project: https://github.com/SoarynAC/spring-angular-ws-api
 
