@@ -6,6 +6,8 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
 import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -26,7 +28,9 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     HttpClientModule,
 
-    TableModule
+    TableModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }

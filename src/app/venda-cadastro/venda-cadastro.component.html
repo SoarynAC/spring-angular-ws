@@ -1,3 +1,20 @@
-<p>
-  venda-cadastro works!
-</p>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <h1 class="">Cadastro de Venda</h1>
+  </div>
+</div>
+
+<form>
+  <div class="ui-g">
+    <div class="ui-g-8 ui-fluid">
+      <label>Cliente</label>
+      <p-dropdown id="cliente" name="cliente" [autoWidth]="false" placeholder="Selecione" [options]="clientes"
+        optionLabel="nome"></p-dropdown>
+    </div>
+
+    <div class="ui-g-4 ui-fluid">
+      <label>Frete</label>
+      <input pInputText id="frete" name="frete" />
+    </div>
+  </div>
+</form>
