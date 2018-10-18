@@ -12,6 +12,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -39,7 +41,9 @@ registerLocaleData(localePt);
     DropdownModule,
     InputTextModule,
     PanelModule,
-    ButtonModule
+    ButtonModule,
+    TooltipModule,
+    ToastModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }
