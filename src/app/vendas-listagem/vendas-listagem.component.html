@@ -1,12 +1,12 @@
 <div class="ui-g">
-  <div class="ui-g-12">
+  <div class="ui-g-10 ui-g-offset-1">
     <p-table [value]="vendas">
       <ng-template pTemplate="header">
         <tr>
           <th class="col-header-id">Código</th>
           <th>Cliente</th>
-          <th>Data da Venda</th>
-          <th>Total</th>
+          <th class="col-250">Data da Venda</th>
+          <th class="col-200">Total</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-venda>

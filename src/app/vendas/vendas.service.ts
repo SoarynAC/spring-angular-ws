@@ -18,4 +18,8 @@ export class VendasService {
   listarClientes(): Observable<any> {
     return this.http.get<any>(`${this.api}/clientes`);
   }
+
+  listarProdutos(): Observable<any> {
+    return this.http.get<any>(`${this.api}/produtos`);
+  }
 }

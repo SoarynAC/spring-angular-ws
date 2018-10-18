@@ -9,11 +9,15 @@ import { VendasService } from '../vendas/vendas.service';
 export class VendaCadastroComponent implements OnInit {
 
   clientes: any[];
+  produtos: any[];
+  venda = {};
+  item = {};
 
   constructor(private vendasService: VendasService) { }
 
   ngOnInit() {
     this.vendasService.listarClientes().subscribe(response => this.clientes = response);
+    this.vendasService.listarProdutos().subscribe(response => this.produtos = response);
   }
 
 }
