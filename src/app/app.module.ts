@@ -10,6 +10,7 @@ import { TableModule } from 'primeng/table';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { VendasListagemComponent } from './vendas-listagem/vendas-listagem.component';
+import { VendaCadastroComponent } from './venda-cadastro/venda-cadastro.component';
 
 registerLocaleData(localePt);
 
@@ -17,7 +18,8 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     NavbarComponent,
-    VendasListagemComponent
+    VendasListagemComponent,
+    VendaCadastroComponent
   ],
   imports: [
     BrowserModule,
