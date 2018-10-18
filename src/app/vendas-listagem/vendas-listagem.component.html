@@ -1,6 +1,10 @@
+<br>
 <div class="ui-g">
   <div class="ui-g-10 ui-g-offset-1">
     <p-table [value]="vendas">
+      <ng-template pTemplate="caption">
+        <h1>Listagem de Vendas</h1>
+      </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th class="col-header-id">Código</th>
@@ -20,14 +24,3 @@
     </p-table>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
