@@ -21,6 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { VendasListagemComponent } from './vendas-listagem/vendas-listagem.component';
 import { VendaCadastroComponent } from './venda-cadastro/venda-cadastro.component';
 
+import { NoThousandSeparatorPipe } from './pipes/noThousandSeparator.pipe';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -28,7 +30,8 @@ registerLocaleData(localePt);
     AppComponent,
     NavbarComponent,
     VendasListagemComponent,
-    VendaCadastroComponent
+    VendaCadastroComponent,
+    NoThousandSeparatorPipe
   ],
   imports: [
     BrowserModule,
