@@ -14,7 +14,6 @@ import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
-import { KeyFilterModule } from 'primeng/keyfilter';
 import { SpinnerModule } from 'primeng/spinner';
 
 import { AppComponent } from './app.component';
@@ -46,7 +45,6 @@ registerLocaleData(localePt);
     ButtonModule,
     TooltipModule,
     ToastModule,
-    KeyFilterModule,
     SpinnerModule
   ],
   providers: [
