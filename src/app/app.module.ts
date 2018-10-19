@@ -14,6 +14,8 @@ import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { SpinnerModule } from 'primeng/spinner';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -43,7 +45,9 @@ registerLocaleData(localePt);
     PanelModule,
     ButtonModule,
     TooltipModule,
-    ToastModule
+    ToastModule,
+    KeyFilterModule,
+    SpinnerModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }

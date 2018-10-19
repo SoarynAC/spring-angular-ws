@@ -11,8 +11,7 @@
     <div class="ui-g-7 ui-g-offset-1 ui-fluid">
       <label>Cliente</label>
       <p-dropdown id="cliente" name="cliente" [autoWidth]="false" placeholder="Selecione" [options]="clientes"
-        optionLabel="nome" [(ngModel)]="venda.cliente" required [filter]="true" pTooltip="Selecione o cliente"
-        tooltipPosition="top" [style]="{height: '70%'}"></p-dropdown>
+        optionLabel="nome" [(ngModel)]="venda.cliente" required [filter]="true"  [style]="{height: '70%'}"></p-dropdown>
     </div>
 
     <div class="ui-g-3 ui-fluid">
@@ -20,7 +19,7 @@
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon"><i class="pi pi-dollar"></i></span>
         <input pInputText id="frete" name="frete" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }"
-          [(ngModel)]="venda.frete" required pTooltip="Digite o frete" tooltipPosition="top" [style]="{height: '70%'}" />
+          [(ngModel)]="venda.frete" required [style]="{height: '70%'}" />
       </div>
     </div>
 
@@ -30,17 +29,15 @@
           <div class="ui-g-8 ui-fluid">
             <label>Produto</label>
             <p-dropdown id="produto" name="produto" [autoWidth]="false" placeholder="Selecione" [options]="produtos"
-              optionLabel="nome" [(ngModel)]="item.produto" [filter]="true" #p pTooltip="Selecione o produto"
-              tooltipPosition="top"></p-dropdown>
+              optionLabel="nome" [(ngModel)]="item.produto" [filter]="true" #p ></p-dropdown>
           </div>
           <div class="ui-g-3 ui-fluid">
             <label>Quantidade</label>
-            <input pInputText type="number" id="quantidade" name="quantidade" [(ngModel)]="item.quantidade" #q pTooltip="Digite a quantidade"
-              tooltipPosition="top" />
+            <p-spinner id="quantidade" name="quantidade" [(ngModel)]="item.quantidade" #q [min]="0"></p-spinner>
           </div>
           <div class="ui-g-1 ui-fluid">
             <br>
-            <button pButton type="button" icon="pi pi-plus" style="width: 100%" (click)="incluirItem()" [disabled]="!p.value || q.value < 1"></button>
+            <button pButton class="ui-button-raised" type="button" icon="pi pi-plus" style="width: 100%" (click)="incluirItem()" [disabled]="!p.value || q.value < 1"></button>
           </div>
 
           <div class="ui-g-12">
