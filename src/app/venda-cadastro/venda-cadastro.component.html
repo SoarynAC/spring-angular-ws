@@ -6,12 +6,12 @@
   </div>
 </div>
 
-<form>
+<form autocomplete="off" #frm="ngForm" (ngSubmit)="concluirVenda(frm)">
   <div class="ui-g">
     <div class="ui-g-7 ui-g-offset-1 ui-fluid">
       <label>Cliente</label>
       <p-dropdown id="cliente" name="cliente" [autoWidth]="false" placeholder="Selecione" [options]="clientes"
-        optionLabel="nome" [(ngModel)]="venda.cliente" required [filter]="true"  [style]="{height: '70%'}"></p-dropdown>
+        optionLabel="nome" [(ngModel)]="venda.cliente" required [filter]="true" [style]="{height: '70%'}"></p-dropdown>
     </div>
 
     <div class="ui-g-3 ui-fluid">
@@ -19,7 +19,7 @@
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon"><i class="pi pi-dollar"></i></span>
         <input pInputText id="frete" name="frete" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }"
-          [(ngModel)]="venda.frete" required [style]="{height: '70%'}" />
+          [(ngModel)]="venda.frete" required [style]="{height: '70%'}" dir="rtl" (ngModelChange)="calcularTotal()" />
       </div>
     </div>
 
@@ -29,46 +29,58 @@
           <div class="ui-g-8 ui-fluid">
             <label>Produto</label>
             <p-dropdown id="produto" name="produto" [autoWidth]="false" placeholder="Selecione" [options]="produtos"
-              optionLabel="nome" [(ngModel)]="item.produto" [filter]="true" #p ></p-dropdown>
+              optionLabel="nome" [(ngModel)]="item.produto" [filter]="true" #p></p-dropdown>
           </div>
           <div class="ui-g-3 ui-fluid">
             <label>Quantidade</label>
-            <p-spinner id="quantidade" name="quantidade" [(ngModel)]="item.quantidade" #q [min]="0"></p-spinner>
+            <p-spinner id="quantidade" name="quantidade" [(ngModel)]="item.quantidade" #q [min]="1"></p-spinner>
           </div>
           <div class="ui-g-1 ui-fluid">
             <br>
-            <button pButton class="ui-button-raised" type="button" icon="pi pi-plus" style="width: 100%" (click)="incluirItem()" [disabled]="!p.value || q.value < 1"></button>
+            <button pButton class="ui-button-raised" type="button" icon="pi pi-plus" style="width: 100%" (click)="incluirItem()"
+              [disabled]="!p.value || q.value < 1 || q.value == undefined"></button>
           </div>
 
           <div class="ui-g-12">
             <p-table [value]="venda.itens">
-                <ng-template pTemplate="header">
-                    <tr>
-                      <th style="width: 120px">Cód. Produto</th>
-                      <th>Produto</th>
-                      <th style="width: 180px">Valor Unitário</th>
-                      <th style="width: 130px">Quantidade</th>
-                      <th style="width: 180px">Valor Total</th>
-                    </tr>
-                  </ng-template>
-                  <ng-template pTemplate="body" let-item>
-                    <tr>
-                      <td class="col-numero">{{ item.produto.id | number:'12.0' | noThousandSeparator }}</td>
-                      <td>{{ item.produto.nome }}</td>
-                      <td class="col-numero">R$ {{ item.produto.valor | number:'1.2-2' }}</td>
-                      <td class="col-data">{{ item.quantidade }}</td>
-                      <td class="col-numero">R$ {{ item.total | number:'1.2-2' }}</td>
-                    </tr>
-                  </ng-template>
-                  <ng-template pTemplate="emptymessage">
-                    <tr>
-                      <td colspan="5" style="text-align: center; font-size: 20px">Nenhum item na venda</td>
-                    </tr>
-                  </ng-template>
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="width: 120px">Cód. Produto</th>
+                  <th>Produto</th>
+                  <th style="width: 180px">Valor Unitário</th>
+                  <th style="width: 130px">Quantidade</th>
+                  <th style="width: 180px">Valor Total</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-item>
+                <tr>
+                  <td class="col-numero">{{ item.produto.id | number:'12.0' | noThousandSeparator }}</td>
+                  <td>{{ item.produto.nome }}</td>
+                  <td class="col-numero">R$ {{ item.produto.valor | number:'1.2-2' }}</td>
+                  <td class="col-data">{{ item.quantidade }}</td>
+                  <td class="col-numero">R$ {{ item.total | number:'1.2-2' }}</td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="5" style="text-align: center; font-size: 20px">Nenhum item na venda</td>
+                </tr>
+              </ng-template>
             </p-table>
           </div>
         </div>
       </p-panel>
+
+      <div class="ui-g-4 ui-g-offset-8 ui-fluid">
+        <label>Total</label>
+        <input pInputText readonly [value]="venda.total | number:'1.2-2'" />
+      </div>
+
+      <div class="ui-g-2 ui-g-offset-5 ui-fluid">
+        <button pButton icon="pi pi-check" label="Concluir venda" style="height: 100%"
+        [disabled]="frm.invalid || venda.itens.length < 1" type="submit"></button>
+      </div>
     </div>
+
   </div>
 </form>
